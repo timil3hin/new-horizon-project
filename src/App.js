@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css"
+import Header from "./components/Header"
+import Footer from "./components/Footer"
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import NavHome from "./components/NavHome"
+import NavAbout from "./components/NavAbout"
+import NavBlog from "./components/NavBlog"
+import NavEvents from "./components/NavEvents"
+import NavInterest from "./components/NavInterest"
+import NavFaq from "./components/NavFaq"
+import NavQoutes from "./components/NavQoutes"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+
+
+export default function App() {
+    return (
+        <div>
+            <Router>
+                <Header />
+                <div>
+                    <Routes >
+                        <Route path='/' element={<NavHome />} />
+                        <Route path='/about' element={<NavAbout />} />
+                        <Route path='/blog' element={<NavBlog />} />
+                        <Route path='/events' element={<NavEvents />} />
+                        <Route path='/interest' element={<NavInterest />} />
+                        <Route path='/faq' element={<NavFaq />} />
+                        <Route path='/qoutes' element={<NavQoutes />} />
+                    </Routes>
+                </div>
+            </Router>
+            <Footer />
+        </div>
+    )
 }
-
-export default App;
